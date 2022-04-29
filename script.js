@@ -1,12 +1,13 @@
 'use strict';
 
+//Функция получения данных
 const getData = () => {
 
   const user = fetch('./db.json');
   user
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      //Отправка
       sendDate('https://jsonplaceholder.typicode.com/posts', data);
     })
     .catch(error => {
@@ -15,6 +16,8 @@ const getData = () => {
 };
 getData();
 
+
+//Функция отправки
 const sendDate = (link, object) => {
   fetch(link, {
     method: 'POST',
